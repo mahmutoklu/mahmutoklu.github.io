@@ -6,6 +6,12 @@
 
   <title>Mahmut Oklu</title>
 
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  >
+
   <style>
     * {
       box-sizing: border-box;
@@ -64,11 +70,34 @@
 
     .title {
       margin-top: 10px;
-      margin-bottom: 35px;
+      margin-bottom: 25px;
 
       font-size: 1.15rem;
       font-weight: 400;
       color: #666;
+    }
+
+    /* Social Icons */
+    .social-links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 22px;
+      margin-bottom: 35px;
+    }
+
+    .social-links a {
+      color: #555;
+      text-decoration: none;
+      font-size: 1.35rem;
+      transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .social-links a:hover {
+      color: #000;
+      transform: translateY(-2px);
     }
 
     .navigation {
@@ -116,6 +145,14 @@
       h1 {
         font-size: 1.9rem;
       }
+
+      .social-links {
+        gap: 19px;
+      }
+
+      .social-links a {
+        font-size: 1.25rem;
+      }
     }
   </style>
 </head>
@@ -134,6 +171,64 @@
 
     <div class="title">
       System Admin
+    </div>
+
+    <!-- Social Links -->
+    <div class="social-links">
+
+      <!-- GitHub -->
+      <a
+        href="https://github.com/mahmutoklu"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="GitHub"
+        title="GitHub"
+      >
+        <i class="fa-brands fa-github"></i>
+      </a>
+
+      <!-- X / Twitter -->
+      <a
+        href="https://twitter.com/YOUR_USERNAME"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="X / Twitter"
+        title="X / Twitter"
+      >
+        <i class="fa-brands fa-x-twitter"></i>
+      </a>
+
+      <!-- LinkedIn -->
+      <a
+        href="https://www.linkedin.com/in/YOUR_USERNAME/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="LinkedIn"
+        title="LinkedIn"
+      >
+        <i class="fa-brands fa-linkedin-in"></i>
+      </a>
+
+      <!-- Google Scholar -->
+      <a
+        href="https://scholar.google.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Google Scholar"
+        title="Google Scholar"
+      >
+        <i class="fa-solid fa-graduation-cap"></i>
+      </a>
+
+      <!-- Email -->
+      <a
+        href="mailto:YOUR_EMAIL@example.com"
+        aria-label="Email"
+        title="Email"
+      >
+        <i class="fa-solid fa-envelope"></i>
+      </a>
+
     </div>
 
     <nav class="navigation">
