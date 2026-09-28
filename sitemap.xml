@@ -2,7 +2,12 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://oklumahmut.github.io/categories/</loc></url><url>
-            <loc>https://oklumahmut.github.io/</loc></url><url>
-            <loc>https://oklumahmut.github.io/posts/</loc></url><url>
-            <loc>https://oklumahmut.github.io/tags/</loc></url></urlset>
+            <loc>https://mahmutoklu.github.io/</loc></url><url>
+            <loc>https://mahmutoklu.github.io/tags/architecture/</loc></url><url>
+            <loc>https://mahmutoklu.github.io/categories/</loc></url><url>
+            <loc>https://mahmutoklu.github.io/tags/docker/</loc></url><url>
+            <loc>https://mahmutoklu.github.io/categories/projects/</loc></url><url>
+            <loc>https://mahmutoklu.github.io/tags/raspberry-pi/</loc></url><url>
+            <loc>https://mahmutoklu.github.io/tags/rustdesk/</loc></url><url>
+            <loc>https://mahmutoklu.github.io/tags/self-hosting/</loc></url><url>
+            <loc>https://mahmutoklu.github.io/tags/</loc></url></urlset>

@@ -1,251 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en-us">
+    <head>
+	<meta name="generator" content="Hugo 0.166.0">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Mahmut Oklu Technical Blog</title><meta name="Description" content="This is my cool site"><meta property="og:url" content="https://mahmutoklu.github.io/">
+	<meta property="og:site_name" content="Mahmut Oklu Technical Blog">
+	<meta property="og:title" content="About Me">
+	<meta property="og:description" content="Hi, I’m Mahmut Oklu.">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="website">
 
-  <title>Mahmut Oklu</title>
-
-  <!-- Font Awesome -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-  >
-
-  <style>
-    * {
-      box-sizing: border-box;
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="About Me">
+	<meta name="twitter:description" content="Hi, I’m Mahmut Oklu.">
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://mahmutoklu.github.io/" /><link rel="alternate" href="/index.xml" type="application/rss+xml" title="Mahmut Oklu Technical Blog">
+    <link rel="feed" href="/index.xml" type="application/rss+xml" title="Mahmut Oklu Technical Blog"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "WebSite",
+        "url": "https:\/\/mahmutoklu.github.io\/","inLanguage": "en-us","author": {
+                "@type": "Person",
+                "name": "Mahmut Oklu"
+            },"description": "This is my cool site","name": "Mahmut Oklu Technical Blog"
     }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>
+          const query = window.matchMedia('(prefers-color-scheme: dark)');
+          function applyTheme() {
+            let theme = window.localStorage?.getItem('theme') || 'auto';
+            let isDark = theme === 'dark' || (theme === 'auto' && query.matches);
+            document.body.setAttribute('theme', isDark? 'dark' : 'light');
+            document.body.setAttribute('cfg-theme', theme);
+          }
 
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-      min-height: 100%;
-    }
+          applyTheme();
+          query.addEventListener('change', applyTheme);
+        </script>
 
-    body {
-      background: #ffffff;
-      color: #333333;
-      font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Roboto,
-        Helvetica,
-        Arial,
-        sans-serif;
-
-      display: flex;
-      justify-content: center;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 700px;
-      min-height: 100vh;
-
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-
-      padding: 70px 25px 30px;
-      text-align: center;
-    }
-
-    .profile-image {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 30px;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: 2.2rem;
-      font-weight: 500;
-      color: #222;
-    }
-
-    .title {
-      margin-top: 10px;
-      margin-bottom: 25px;
-
-      font-size: 1.15rem;
-      font-weight: 400;
-      color: #666;
-    }
-
-    /* Social Icons */
-    .social-links {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 22px;
-      margin-bottom: 35px;
-    }
-
-    .social-links a {
-      color: #555;
-      text-decoration: none;
-      font-size: 1.35rem;
-      transition:
-        color 0.2s ease,
-        transform 0.2s ease;
-    }
-
-    .social-links a:hover {
-      color: #000;
-      transform: translateY(-2px);
-    }
-
-    .navigation {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .navigation a {
-      color: #333;
-      text-decoration: none;
-      font-size: 1rem;
-      transition: color 0.2s ease;
-    }
-
-    .navigation a:hover {
-      color: #888;
-    }
-
-    hr {
-      width: 100%;
-      margin: 55px 0 25px;
-      border: 0;
-      border-top: 1px solid #eeeeee;
-    }
-
-    footer {
-      margin-top: auto;
-      padding-top: 20px;
-
-      color: #999;
-      font-size: 0.8rem;
-    }
-
-    @media (max-width: 600px) {
-      .container {
-        padding-top: 50px;
-      }
-
-      .profile-image {
-        width: 125px;
-        height: 125px;
-      }
-
-      h1 {
-        font-size: 1.9rem;
-      }
-
-      .social-links {
-        gap: 19px;
-      }
-
-      .social-links a {
-        font-size: 1.25rem;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-  <main class="container">
-
-    <img
-      class="profile-image"
-      src="images/mahmutoklu.jpeg"
-      alt="Mahmut Oklu"
-    >
-
-    <h1>Mahmut Oklu</h1>
-
-    <div class="title">
-      System Admin
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Mahmut Oklu Technical Blog">My cool site</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust" aria-hidden="true"></i>
+                </a></div>
+        </div>
     </div>
-
-    <!-- Social Links -->
-    <div class="social-links">
-
-      <!-- GitHub -->
-      <a
-        href="https://github.com/mahmutoklu"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="GitHub"
-        title="GitHub"
-      >
-        <i class="fa-brands fa-github"></i>
-      </a>
-
-      <!-- X / Twitter -->
-      <a
-        href="https://twitter.com/YOUR_USERNAME"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="X / Twitter"
-        title="X / Twitter"
-      >
-        <i class="fa-brands fa-x-twitter"></i>
-      </a>
-
-      <!-- LinkedIn -->
-      <a
-        href="https://www.linkedin.com/in/YOUR_USERNAME/"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="LinkedIn"
-        title="LinkedIn"
-      >
-        <i class="fa-brands fa-linkedin-in"></i>
-      </a>
-
-      <!-- Google Scholar -->
-      <a
-        href="https://scholar.google.com/"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Google Scholar"
-        title="Google Scholar"
-      >
-        <i class="fa-solid fa-graduation-cap"></i>
-      </a>
-
-      <!-- Email -->
-      <a
-        href="mailto:oklumahmut@hotmail.com"
-        aria-label="Email"
-        title="Email"
-      >
-        <i class="fa-solid fa-envelope"></i>
-      </a>
-
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Mahmut Oklu Technical Blog">My cool site</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust" aria-hidden="true"></i>
+            </a></div>
     </div>
+</header><main class="main">
+                <div class="container"><div class="page home" data-home="posts"><div class="home-profile"><h1 class="home-title">Mahmut Oklu</h1><div class="home-subtitle"><div id="id-1" class="typeit"></div></div><div class="links"><a href="https://github.com/oklumahmut" title="GitHub" target="_blank" rel="noopener noreffer me"><i class="fab fa-github" aria-hidden="true"></i></a><a href="/index.xml" title="RSS" target="_blank" rel="noopener noreffer me"><i class="fas fa-rss" aria-hidden="true"></i></a></div></div>
+<div class="single">
+                <div class="content" id="content"><p>Hi, I&rsquo;m Mahmut Oklu.</p>
+</div>
+            </div></div></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.166.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 1.0.0"><i class="far fa-kiss-wink-heart" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Mahmut Oklu</a></span></div>
+        </div>
+    </footer></div>
 
-    <nav class="navigation">
-      <a href="/posts/">posts</a>
-      <a href="/about/">about</a>
-      <a href="/projects/">projects</a>
-    </nav>
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up" aria-hidden="true"></i>
+            </a>
+        </div>
 
-    <hr>
-
-    <footer>
-      © 2026. Mahmut Oklu.
-      <div>Hugo, themed by LoveIt</div>
-      <div>Some Rights Reserved</div>
-    </footer>
-
-  </main>
-
-</body>
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment" aria-hidden="true"></i>
+            </a>
+        </div><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.2/sharer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script>window.config={"data":{"id-1":"Welcome to my blog"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"]},"duration":-1,"speed":100}};</script><script src="/js/theme.js"></script></body>
 </html>
