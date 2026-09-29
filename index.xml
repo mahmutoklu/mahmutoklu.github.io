@@ -3,7 +3,7 @@
         <title>Mahmut Oklu Technical Blog</title>
         <link>https://mahmutoklu.github.io/</link>
         <description>This is my cool site</description>
-        <generator>Hugo -- gohugo.io</generator><language>en-us</language>
+        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 26 Sep 2026 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="https://mahmutoklu.github.io/index.xml" rel="self" type="application/rss+xml" />
         </channel>
 </rss>
