@@ -37,7 +37,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/mahmutoklu.github.io\/projects\/rustdesk-raspberry-pi\/"
-        },"genre": "projects","keywords": "RustDesk, Raspberry Pi, Self-Hosting, Docker, Architecture","wordcount":  1329 ,
+        },"genre": "projects","keywords": "RustDesk, Raspberry Pi, Self-Hosting, Docker, Architecture","wordcount":  1318 ,
         "url": "https:\/\/mahmutoklu.github.io\/projects\/rustdesk-raspberry-pi\/","datePublished": "2026-09-26T00:00:00+00:00","dateModified": "2026-09-26T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -85,24 +85,24 @@
             </a></div>
     </div>
 </header><main class="main">
-                <div class="container"><div class="page single special"><h1 class="single-title animate__animated animate__pulse animate__faster">Self-Hosting RustDesk Server on a Raspberry Pi 5</h1><div class="content" id="content"><p>RustDesk is a free and open-source remote desktop application that allows you to control computers remotely. It serves as an excellent alternative to commercial tools like TeamViewer or AnyDesk, but its true superpower lies in its architecture: <strong>you can self-host the server infrastructure yourself</strong>.</p>
+                <div class="container"><div class="page single special"><h1 class="single-title animate__animated animate__pulse animate__faster">Self-Hosting RustDesk Server on a Raspberry Pi 5</h1><div class="content" id="content"><p>RustDesk is a free and open-source remote desktop application that allows you to control computers remotely. It serves as an excellent alternative to commercial tools like TeamViewer or AnyDesk, but its true superpower lies in its architecture: you can self-host the server infrastructure yourself.</p>
 <hr>
 <h2 id="project-overview">Project Overview</h2>
 <h3 id="1-what-problem-did-i-solve-with-this-project">1. What problem did I solve with this project?</h3>
-<p>In this project, I <strong>try to solve</strong> the growing challenge of secure, self-managed remote computer access without relying on third-party commercial servers. Commercial tools often suffer from restrictive time limits, false-positive &ldquo;commercial use&rdquo; flags, and routing your private desktop data through unknown third-party servers.</p>
-<p>By hosting my own RustDesk infrastructure on a low-power Raspberry Pi 5, I achieved <strong>not only</strong> complete data sovereignty and total administrative control over my remote connections, <strong>but also</strong> a highly reliable, low-latency solution that operates entirely on my own hardware. This means no surprise paywalls, no data throttling, and absolute privacy for my remote sessions.</p>
+<p>In this project, I try to solve the growing challenge of secure, self-managed remote computer access without relying on third-party commercial servers. Commercial tools often suffer from restrictive time limits, false-positive &ldquo;commercial use&rdquo; flags, and routing your private desktop data through unknown third-party servers.</p>
+<p>By hosting my own RustDesk infrastructure on a low-power Raspberry Pi 5, I achieved not only complete data sovereignty and total administrative control over my remote connections, but also a highly reliable, low-latency solution that operates entirely on my own hardware. This means no surprise paywalls, no data throttling, and absolute privacy for my remote sessions.</p>
 <h3 id="2-technical-architecture--how-it-works">2. Technical Architecture &amp; How it Works</h3>
-<p>The RustDesk self-hosted environment relies on two distinct server components—<strong>HBBS</strong> and <strong>HBBR</strong>—that work together to facilitate connections between devices.</p>
+<p>The RustDesk self-hosted environment relies on two distinct server components—HBBS and HBBR—that work together to facilitate connections between devices.</p>
 <ul>
-<li><strong>HBBS (RustDesk ID/Rendezvous Server):</strong> This is the &ldquo;matchmaking&rdquo; signaling server. It manages client IDs, heartbeats, and NAT traversal tests. Its primary goal is to help two devices find each other and establish a direct, peer-to-peer (P2P) connection using a technique called &ldquo;hole punching&rdquo;.</li>
-<li><strong>HBBR (RustDesk Relay Server):</strong> This is the data relay server. It acts as a fallback intermediary. If a direct P2P connection fails (usually because both devices are behind strict corporate firewalls or symmetric NATs), the encrypted video and control traffic is safely routed through HBBR to ensure the connection still succeeds.</li>
+<li>HBBS (RustDesk ID/Rendezvous Server): This is the &ldquo;matchmaking&rdquo; signaling server. It manages client IDs, heartbeats, and NAT traversal tests. Its primary goal is to help two devices find each other and establish a direct, peer-to-peer (P2P) connection using a technique called &ldquo;hole punching&rdquo;.</li>
+<li>HBBR (RustDesk Relay Server): This is the data relay server. It acts as a fallback intermediary. If a direct P2P connection fails (usually because both devices are behind strict corporate firewalls or symmetric NATs), the encrypted video and control traffic is safely routed through HBBR to ensure the connection still succeeds.</li>
 </ul>
 <h4 id="the-connection-flow">The Connection Flow</h4>
 <ol>
-<li><strong>Registration:</strong> Every time a RustDesk client opens, it &ldquo;pings&rdquo; the <strong>HBBS</strong> server to announce its current IP and claim its numerical ID.</li>
-<li><strong>Request:</strong> When Client A wants to control Client B, it asks the <strong>HBBS</strong> server for Client B&rsquo;s connection details.</li>
-<li><strong>Hole Punching (P2P):</strong> HBBS attempts to connect Client A and Client B directly to each other. If successful, data flows peer-to-peer, bypassing the server entirely for maximum speed.</li>
-<li><strong>Fallback Relay:</strong> If &ldquo;hole punching&rdquo; fails due to strict firewalls, both clients connect to <strong>HBBR</strong>, which acts as a secure middleman relaying the screen data.</li>
+<li>Registration: Every time a RustDesk client opens, it &ldquo;pings&rdquo; the HBBS server to announce its current IP and claim its numerical ID.</li>
+<li>Request: When Client A wants to control Client B, it asks the HBBS server for Client B&rsquo;s connection details.</li>
+<li>Hole Punching (P2P): HBBS attempts to connect Client A and Client B directly to each other. If successful, data flows peer-to-peer, bypassing the server entirely for maximum speed.</li>
+<li>Fallback Relay: If &ldquo;hole punching&rdquo; fails due to strict firewalls, both clients connect to HBBR, which acts as a secure middleman relaying the screen data.</li>
 </ol>
 <div class="mermaid" id="id-1">flowchart TD
     ClientA[Client A / Remote Laptop] --&gt;|1 &amp; 2. Register &amp; Request| HBBS(HBBS - ID/Rendezvous Server)
@@ -119,13 +119,13 @@
         HBBS
         HBBR
     end</div><h3 id="3-tech-stack--development-process">3. Tech Stack &amp; Development Process</h3>
-<p><strong>Tech Stack:</strong></p>
+<p>Tech Stack:</p>
 <ul>
-<li><strong>Hardware:</strong> Raspberry Pi 5 (ARM architecture)</li>
-<li><strong>Core Software:</strong> RustDesk Client &amp; Server, Docker, Docker Compose</li>
-<li><strong>Operating Systems:</strong> Linux (Raspberry Pi OS / Debian), macOS</li>
+<li>Hardware: Raspberry Pi 5 (ARM architecture)</li>
+<li>Core Software: RustDesk Client &amp; Server, Docker, Docker Compose</li>
+<li>Operating Systems: Linux (Raspberry Pi OS / Debian), macOS</li>
 </ul>
-<p><strong>How I developed it:</strong></p>
+<p>How I developed it:</p>
 <p>I began by preparing the Raspberry Pi 5 as the headless server. Because standard package managers often lack the latest Docker binaries for ARM architectures, I manually added Docker&rsquo;s official GPG keys and installed the Docker Engine directly from their repositories.</p>
 <p>Next, I wrote a <code>compose.yaml</code> file to deploy the HBBS and HBBR services. A critical architectural decision here was using <code>network_mode: &quot;host&quot;</code>. Running the containers in host mode ensures that Docker doesn&rsquo;t mask the true IP addresses and ports with its internal NAT network. This is absolutely essential for RustDesk&rsquo;s &ldquo;hole punching&rdquo; to work accurately and facilitate direct P2P connections.</p>
 <p>After spinning up the server stack, I navigated to the generated data directory to retrieve the <code>id_ed25529.pub</code> public cryptographic key. This key is the foundation of the server&rsquo;s security—it ensures that only clients who possess the key can utilize my private relay server, preventing rogue clients from hijacking my bandwidth. Finally, I configured my desktop and laptop clients to point to the Pi&rsquo;s external IP address and injected the public key, fully locking down my personal remote desktop ecosystem.</p>
@@ -133,8 +133,10 @@
 <h2 id="part-1-installing-the-rustdesk-client">Part 1: Installing the RustDesk Client</h2>
 <p>Before pointing traffic to our own server, we need the RustDesk application installed on our end-user devices.</p>
 <h3 id="installing-on-raspberry-pi-5-linux">Installing on Raspberry Pi 5 (Linux)</h3>
-<p><strong>1. Check your architecture</strong>
-Open your terminal and run:</p>
+<ol>
+<li>Check your architecture
+Open your terminal and run:</li>
+</ol>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
@@ -142,15 +144,19 @@ Open your terminal and run:</p>
         <span class="copy" title="Copy to clipboard"><i class="far fa-copy" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">uname -m</span></span></code></pre></div></div>
 <p><em>The output for a Raspberry Pi 5 should be <code>aarch64</code>.</em></p>
-<p><strong>2. Download RustDesk</strong>
-You can download it from the <a href="https://rustdesk.com/download" target="_blank" rel="noopener noreffer ">official releases page</a> or directly via the terminal:</p>
+<ol start="2">
+<li>Download RustDesk
+You can download it from the <a href="https://rustdesk.com/download" target="_blank" rel="noopener noreffer ">official releases page</a> or directly via the terminal:</li>
+</ol>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
         <span class="copy" title="Copy to clipboard"><i class="far fa-copy" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wget https://github.com/rustdesk/rustdesk/releases/download/1.4.8/rustdesk-1.4.8-aarch64.deb</span></span></code></pre></div></div>
-<p><strong>3. Install and Run</strong></p>
+<ol start="3">
+<li>Install and Run</li>
+</ol>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
@@ -159,22 +165,28 @@ You can download it from the <a href="https://rustdesk.com/download" target="_bl
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install -fy ./rustdesk-1.4.8-aarch64.deb
 </span></span><span class="line"><span class="cl">rustdesk</span></span></code></pre></div></div>
 <h3 id="installing-on-macbook-macos">Installing on MacBook (macOS)</h3>
-<p><strong>1. Check your architecture</strong></p>
+<ol>
+<li>Check your architecture</li>
+</ol>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
         <span class="copy" title="Copy to clipboard"><i class="far fa-copy" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">uname -a</span></span></code></pre></div></div>
-<p><strong>2. Install RustDesk via Homebrew</strong>
-We use <code>--cask</code> because RustDesk is a GUI application:</p>
+<ol start="2">
+<li>Install RustDesk via Homebrew
+We use <code>--cask</code> because RustDesk is a GUI application:</li>
+</ol>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
         <span class="copy" title="Copy to clipboard"><i class="far fa-copy" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">brew install --cask rustdesk</span></span></code></pre></div></div>
-<p><strong>3. Run the App</strong></p>
+<ol start="3">
+<li>Run the App</li>
+</ol>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
@@ -186,14 +198,14 @@ We use <code>--cask</code> because RustDesk is a GUI application:</p>
 <h2 id="part-2-self-hosting-rustdesk-with-docker">Part 2: Self-Hosting RustDesk with Docker</h2>
 <h3 id="requirements-firewall-ports">Requirements: Firewall Ports</h3>
 <p>To allow devices to reach your Raspberry Pi, be sure to open these specific ports in your router&rsquo;s firewall/port-forwarding settings:</p>
-<p><strong>HBBS (ID Server):</strong></p>
+<p>HBBS (ID Server):</p>
 <ul>
 <li><code>21114 (TCP)</code>: Used for the web console (Pro version only).</li>
 <li><code>21115 (TCP)</code>: Used for the NAT type test.</li>
 <li><code>21116 (TCP/UDP)</code>: Used for ID registration, heartbeat service, TCP hole punching, and connection service. <em>(Must be enabled for both TCP and UDP).</em></li>
 <li><code>21118 (TCP)</code>: Used to support web clients.</li>
 </ul>
-<p><strong>HBBR (Relay Server):</strong></p>
+<p>HBBR (Relay Server):</p>
 <ul>
 <li><code>21117 (TCP)</code>: Used for Relay services.</li>
 <li><code>21119 (TCP)</code>: Used to support web clients.</li>
@@ -234,14 +246,18 @@ We use <code>--cask</code> because RustDesk is a GUI application:</p>
 </span></span><span class="line"><span class="cl">docker compose version</span></span></code></pre></div></div>
 <h3 id="deploying-the-server">Deploying the Server</h3>
 <p>Now that Docker is installed, we can create the stack.</p>
-<p><strong>1. Create the Docker Compose file:</strong></p>
+<ol>
+<li>Create the Docker Compose file:</li>
+</ol>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
         <span class="copy" title="Copy to clipboard"><i class="far fa-copy" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vim compose.yaml</span></span></code></pre></div></div>
-<p><strong>2. Paste the configuration:</strong></p>
+<ol start="2">
+<li>Paste the configuration:</li>
+</ol>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-yaml">
         <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
@@ -269,8 +285,10 @@ We use <code>--cask</code> because RustDesk is a GUI application:</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">./data:/root</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">network_mode</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;host&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">unless-stopped</span></span></span></code></pre></div></div>
-<p><strong>3. Start the server:</strong>
-Run the following command in detached mode (<code>-d</code>) to leave it running in the background:</p>
+<ol start="3">
+<li>Start the server:
+Run the following command in detached mode (<code>-d</code>) to leave it running in the background:</li>
+</ol>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
@@ -280,8 +298,10 @@ Run the following command in detached mode (<code>-d</code>) to leave it running
 <hr>
 <h2 id="part-3-configuring-the-client">Part 3: Configuring the Client</h2>
 <p>With the server running smoothly in the background, we need to point our RustDesk clients to it.</p>
-<p><strong>1. Get your Public Key</strong>
-Go to the <code>data</code> directory created by Docker in the same folder as your <code>compose.yaml</code>:</p>
+<ol>
+<li>Get your Public Key
+Go to the <code>data</code> directory created by Docker in the same folder as your <code>compose.yaml</code>:</li>
+</ol>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
@@ -289,12 +309,12 @@ Go to the <code>data</code> directory created by Docker in the same folder as yo
         <span class="copy" title="Copy to clipboard"><i class="far fa-copy" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> data
 </span></span><span class="line"><span class="cl">cat id_ed25529.pub</span></span></code></pre></div></div>
-<p>This file stores your auto-generated cryptographic public key. You <strong>must</strong> paste this key into any device that wants to connect to your server. Without it, the server will reject the connection.</p>
-<p><strong>2. Update Client Settings</strong></p>
-<ol>
+<p>This file stores your auto-generated cryptographic public key. You must paste this key into any device that wants to connect to your server. Without it, the server will reject the connection.</p>
+<ol start="2">
+<li>Update Client Settings</li>
 <li>Open the RustDesk app on your device.</li>
-<li>Navigate to <strong>Settings</strong> -&gt; <strong>Network</strong>.</li>
-<li>Select <strong>ID/Relay Server</strong>.</li>
+<li>Navigate to Settings -&gt; Network.</li>
+<li>Select ID/Relay Server.</li>
 </ol>
 <p><img
         class="lazyload"
@@ -305,15 +325,15 @@ Go to the <code>data</code> directory created by Docker in the same folder as yo
         alt="/images/RustDesk_Settings.png"
         title="RustDesk Settings" /></p>
 <ul>
-<li><strong>ID Server &amp; Relay Server:</strong> Enter the <strong>External IP address</strong> of your Raspberry Pi 5. (This is the public IP address you see when you check a site like &ldquo;What is my IP&rdquo; from your home network). Both fields should have this exact IP.</li>
-<li><strong>Key:</strong> Paste the full text contents of your <code>id_ed25529.pub</code> file here.</li>
-<li>Click <strong>OK</strong>.</li>
+<li>ID Server &amp; Relay Server: Enter the External IP address of your Raspberry Pi 5. (This is the public IP address you see when you check a site like &ldquo;What is my IP&rdquo; from your home network). Both fields should have this exact IP.</li>
+<li>Key: Paste the full text contents of your <code>id_ed25529.pub</code> file here.</li>
+<li>Click OK.</li>
 </ul>
 <p><em>(You must apply these settings to both the controlling device and the target device).</em></p>
 <h3 id="setting-a-permanent-password">Setting a Permanent Password</h3>
 <p>For unattended remote access (meaning nobody is sitting at the host computer to accept the connection), it&rsquo;s highly recommended to set a permanent password. This saves you from having to check the dynamically changing one-time password.</p>
-<p>Go to: <strong>Settings</strong> -&gt; <strong>Security</strong> -&gt; <strong>Use permanent password</strong> -&gt; <strong>Set permanent password</strong>.</p>
-<p><strong>That&rsquo;s it!</strong> You can now make private, secure RustDesk connections over your LAN or WAN using your very own Raspberry Pi 5 server.</p>
+<p>Go to: Settings -&gt; Security -&gt; Use permanent password -&gt; Set permanent password.</p>
+<p>That&rsquo;s it! You can now make private, secure RustDesk connections over your LAN or WAN using your very own Raspberry Pi 5 server.</p>
 </div></div></div>
             </main><footer class="footer">
         <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.166.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 1.0.0"><i class="far fa-kiss-wink-heart" aria-hidden="true"></i> LoveIt</a>
