@@ -10,14 +10,56 @@
 		
 		
 		
-			<lastBuildDate>Sat, 26 Sep 2026 00:00:00 +0000</lastBuildDate>
+			<lastBuildDate>Wed, 30 Sep 2026 00:00:00 +0000</lastBuildDate>
 		
 			<atom:link href="https://mahmutoklu.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>Architecture</title>
 				<link>https://mahmutoklu.github.io/tags/architecture/</link>
-				<pubDate>Sat, 26 Sep 2026 00:00:00 +0000</pubDate>
+				<pubDate>Wed, 30 Sep 2026 00:00:00 +0000</pubDate>
 				<guid>https://mahmutoklu.github.io/tags/architecture/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>IoT</title>
+				<link>https://mahmutoklu.github.io/tags/iot/</link>
+				<pubDate>Wed, 30 Sep 2026 00:00:00 +0000</pubDate>
+				<guid>https://mahmutoklu.github.io/tags/iot/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>MicroPython</title>
+				<link>https://mahmutoklu.github.io/tags/micropython/</link>
+				<pubDate>Wed, 30 Sep 2026 00:00:00 +0000</pubDate>
+				<guid>https://mahmutoklu.github.io/tags/micropython/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Networking</title>
+				<link>https://mahmutoklu.github.io/tags/networking/</link>
+				<pubDate>Wed, 30 Sep 2026 00:00:00 +0000</pubDate>
+				<guid>https://mahmutoklu.github.io/tags/networking/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Pico W</title>
+				<link>https://mahmutoklu.github.io/tags/pico-w/</link>
+				<pubDate>Wed, 30 Sep 2026 00:00:00 +0000</pubDate>
+				<guid>https://mahmutoklu.github.io/tags/pico-w/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Raspberry Pi</title>
+				<link>https://mahmutoklu.github.io/tags/raspberry-pi/</link>
+				<pubDate>Wed, 30 Sep 2026 00:00:00 +0000</pubDate>
+				<guid>https://mahmutoklu.github.io/tags/raspberry-pi/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Tailscale</title>
+				<link>https://mahmutoklu.github.io/tags/tailscale/</link>
+				<pubDate>Wed, 30 Sep 2026 00:00:00 +0000</pubDate>
+				<guid>https://mahmutoklu.github.io/tags/tailscale/</guid>
 				<description></description>
 			</item>
 			<item>
@@ -25,13 +67,6 @@
 				<link>https://mahmutoklu.github.io/tags/docker/</link>
 				<pubDate>Sat, 26 Sep 2026 00:00:00 +0000</pubDate>
 				<guid>https://mahmutoklu.github.io/tags/docker/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Raspberry Pi</title>
-				<link>https://mahmutoklu.github.io/tags/raspberry-pi/</link>
-				<pubDate>Sat, 26 Sep 2026 00:00:00 +0000</pubDate>
-				<guid>https://mahmutoklu.github.io/tags/raspberry-pi/</guid>
 				<description></description>
 			</item>
 			<item>

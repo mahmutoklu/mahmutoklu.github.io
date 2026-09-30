@@ -1,9 +1,9 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Architecture - Tag - Mahmut Oklu Technical Blog</title>
-        <link>https://mahmutoklu.github.io/tags/architecture/</link>
-        <description>Architecture - Tag - Mahmut Oklu Technical Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 30 Sep 2026 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://mahmutoklu.github.io/tags/architecture/" rel="self" type="application/rss+xml" /><item>
+        <title>MicroPython - Tag - Mahmut Oklu Technical Blog</title>
+        <link>https://mahmutoklu.github.io/tags/micropython/</link>
+        <description>MicroPython - Tag - Mahmut Oklu Technical Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 30 Sep 2026 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://mahmutoklu.github.io/tags/micropython/" rel="self" type="application/rss+xml" /><item>
     <title>24/7 Internet Health &amp; Telemetry Monitor: From Pico W to Cloud-Accessible Edge Appliance</title>
     <link>https://mahmutoklu.github.io/projects/internet-monitor-picow/</link>
     <pubDate>Wed, 30 Sep 2026 00:00:00 &#43;0000</pubDate>
@@ -24,18 +24,6 @@
 <hr>
 <h3 id="1-problem-statement">1. Problem Statement</h3>
 <p>Diagnosing intermittent Wi-Fi degradation and ISP routing issues is notoriously difficult because standard network speed tests are manual, periodic, and consume substantial bandwidth while missing silent micro-dropouts that disrupt real-time applications. In this initial phase of research and development, I set out to create a dedicated, low-power telemetry appliance that continuously tracks home connectivity. Through this embedded implementation, I try to solve the persistent observability gap in residential networking by deploying an autonomous hardware agent that operates 24/7 without requiring an attached host computer.</p>]]></description>
-</item>
-<item>
-    <title>Self-Hosting RustDesk Server on a Raspberry Pi 5</title>
-    <link>https://mahmutoklu.github.io/projects/rustdesk-raspberry-pi/</link>
-    <pubDate>Sat, 26 Sep 2026 00:00:00 &#43;0000</pubDate>
-    <author>Mahmut Oklu</author>
-    <guid>https://mahmutoklu.github.io/projects/rustdesk-raspberry-pi/</guid>
-    <description><![CDATA[<p>RustDesk is a free and open-source remote desktop application that allows you to control computers remotely. It serves as an excellent alternative to commercial tools like TeamViewer or AnyDesk, but its true superpower lies in its architecture: you can self-host the server infrastructure yourself.</p>
-<hr>
-<h2 id="project-overview">Project Overview</h2>
-<h3 id="1-what-problem-did-i-solve-with-this-project">1. What problem did I solve with this project?</h3>
-<p>In this project, I try to solve the growing challenge of secure, self-managed remote computer access without relying on third-party commercial servers. Commercial tools often suffer from restrictive time limits, false-positive &ldquo;commercial use&rdquo; flags, and routing your private desktop data through unknown third-party servers.</p>]]></description>
 </item>
 </channel>
 </rss>

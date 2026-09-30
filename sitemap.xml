@@ -2,16 +2,22 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://mahmutoklu.github.io/</loc><lastmod>2026-09-26T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>https://mahmutoklu.github.io/tags/architecture/</loc><lastmod>2026-09-26T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>https://mahmutoklu.github.io/categories/</loc><lastmod>2026-09-26T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>https://mahmutoklu.github.io/projects/internet-monitor-picow/</loc><lastmod>2026-09-30T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>https://mahmutoklu.github.io/</loc><lastmod>2026-09-30T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>https://mahmutoklu.github.io/tags/architecture/</loc><lastmod>2026-09-30T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>https://mahmutoklu.github.io/categories/</loc><lastmod>2026-09-30T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>https://mahmutoklu.github.io/tags/iot/</loc><lastmod>2026-09-30T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>https://mahmutoklu.github.io/tags/micropython/</loc><lastmod>2026-09-30T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>https://mahmutoklu.github.io/tags/networking/</loc><lastmod>2026-09-30T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>https://mahmutoklu.github.io/tags/pico-w/</loc><lastmod>2026-09-30T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>https://mahmutoklu.github.io/categories/projects/</loc><lastmod>2026-09-30T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>https://mahmutoklu.github.io/tags/raspberry-pi/</loc><lastmod>2026-09-30T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>https://mahmutoklu.github.io/tags/</loc><lastmod>2026-09-30T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>https://mahmutoklu.github.io/tags/tailscale/</loc><lastmod>2026-09-30T00:00:00&#43;00:00</lastmod></url><url>
             <loc>https://mahmutoklu.github.io/tags/docker/</loc><lastmod>2026-09-26T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>https://mahmutoklu.github.io/categories/projects/</loc><lastmod>2026-09-26T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>https://mahmutoklu.github.io/tags/raspberry-pi/</loc><lastmod>2026-09-26T00:00:00&#43;00:00</lastmod></url><url>
             <loc>https://mahmutoklu.github.io/tags/rustdesk/</loc><lastmod>2026-09-26T00:00:00&#43;00:00</lastmod></url><url>
             <loc>https://mahmutoklu.github.io/tags/self-hosting/</loc><lastmod>2026-09-26T00:00:00&#43;00:00</lastmod></url><url>
             <loc>https://mahmutoklu.github.io/projects/rustdesk-raspberry-pi/</loc><lastmod>2026-09-26T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>https://mahmutoklu.github.io/tags/</loc><lastmod>2026-09-26T00:00:00&#43;00:00</lastmod></url><url>
             <loc>https://mahmutoklu.github.io/about/</loc><lastmod>2023-01-01T00:00:00&#43;00:00</lastmod></url><url>
             <loc>https://mahmutoklu.github.io/projects/</loc><lastmod>2023-01-01T00:00:00&#43;00:00</lastmod></url><url>
             <loc>https://mahmutoklu.github.io/posts/</loc></url></urlset>

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>24/7 Internet Health &amp; Telemetry Monitor: From Pico W to Cloud-Accessible Edge Appliance - Mahmut Oklu Technical Blog</title><meta name="Description" content="An end-to-end IoT and edge computing project designed to continuously measure Wi-Fi link quality, ping latency, jitter, and packet loss, serving an interactive telemetry dashboard accessible globally via Tailscale Funnel."><meta property="og:url" content="https://mahmutoklu.github.io/projects/internet-monitor-picow/">
+	<meta property="og:site_name" content="Mahmut Oklu Technical Blog">
+	<meta property="og:title" content="24/7 Internet Health & Telemetry Monitor: From Pico W to Cloud-Accessible Edge Appliance">
+	<meta property="og:description" content="An end-to-end IoT and edge computing project designed to continuously measure Wi-Fi link quality, ping latency, jitter, and packet loss, serving an interactive telemetry dashboard accessible globally via Tailscale Funnel.">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="projects">
+		<meta property="article:published_time" content="2026-09-30T00:00:00+00:00">
+		<meta property="article:modified_time" content="2026-09-30T00:00:00+00:00">
+		<meta property="article:tag" content="Raspberry Pi">
+		<meta property="article:tag" content="Pico W">
+		<meta property="article:tag" content="IoT">
+		<meta property="article:tag" content="MicroPython">
+		<meta property="article:tag" content="Tailscale">
+		<meta property="article:tag" content="Networking">
+
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="24/7 Internet Health & Telemetry Monitor: From Pico W to Cloud-Accessible Edge Appliance">
+	<meta name="twitter:description" content="An end-to-end IoT and edge computing project designed to continuously measure Wi-Fi link quality, ping latency, jitter, and packet loss, serving an interactive telemetry dashboard accessible globally via Tailscale Funnel.">
+<meta name="application-name" content="Mahmut Oklu Technical Blog">
+<meta name="apple-mobile-web-app-title" content="Mahmut Oklu Technical Blog">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://mahmutoklu.github.io/projects/internet-monitor-picow/" /><link rel="prev" href="https://mahmutoklu.github.io/projects/rustdesk-raspberry-pi/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "24/7 Internet Health \u0026 Telemetry Monitor: From Pico W to Cloud-Accessible Edge Appliance",
+        "inLanguage": "en-us",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/mahmutoklu.github.io\/projects\/internet-monitor-picow\/"
+        },"genre": "projects","keywords": "Raspberry Pi, Pico W, IoT, MicroPython, Tailscale, Networking, Architecture","wordcount":  1489 ,
+        "url": "https:\/\/mahmutoklu.github.io\/projects\/internet-monitor-picow\/","datePublished": "2026-09-30T00:00:00+00:00","dateModified": "2026-09-30T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Mahmut Oklu"
+            },"description": "An end-to-end IoT and edge computing project designed to continuously measure Wi-Fi link quality, ping latency, jitter, and packet loss, serving an interactive telemetry dashboard accessible globally via Tailscale Funnel."
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>
+          const query = window.matchMedia('(prefers-color-scheme: dark)');
+          function applyTheme() {
+            let theme = window.localStorage?.getItem('theme') || 'auto';
+            let isDark = theme === 'dark' || (theme === 'auto' && query.matches);
+            document.body.setAttribute('theme', isDark? 'dark' : 'light');
+            document.body.setAttribute('cfg-theme', theme);
+          }
+
+          applyTheme();
+          query.addEventListener('change', applyTheme);
+        </script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Mahmut Oklu Technical Blog"></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/" title="Posts"> Posts </a><a class="menu-item" href="/projects/" title="Projects"> Projects </a><a class="menu-item" href="/about/" title="About"> About </a><a class="menu-item" href="/" title="Home"> Home </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Mahmut Oklu Technical Blog"></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="Posts">Posts</a><a class="menu-item" href="/projects/" title="Projects">Projects</a><a class="menu-item" href="/about/" title="About">About</a><a class="menu-item" href="/" title="Home">Home</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="page single special"><h1 class="single-title animate__animated animate__pulse animate__faster">24/7 Internet Health &amp; Telemetry Monitor: From Pico W to Cloud-Accessible Edge Appliance</h1><div class="content" id="content"><p>An end-to-end IoT and edge computing project designed to continuously measure Wi-Fi link quality, ping latency, jitter, and packet loss, serving an interactive telemetry dashboard accessible globally via Tailscale Funnel.</p>
+<hr>
+<h2 id="-background-what-is-the-raspberry-pi-pico-w">📌 Background: What is the Raspberry Pi Pico W?</h2>
+<p>The <strong>Raspberry Pi Pico W</strong> is a high-performance, ultra-low-cost ($6) microcontroller development board designed by Raspberry Pi:</p>
+<ul>
+<li><strong>Microcontroller vs. SBC:</strong> Unlike a standard Single Board Computer (such as a Raspberry Pi 4 or 5) which boots a full operating system like Linux, the Pico W is a &ldquo;bare-metal&rdquo; microcontroller. It executes code directly on hardware with zero operating system overhead, typically programmed via MicroPython or C/C++.</li>
+<li><strong>Core Silicon (RP2040):</strong> Features a custom Raspberry Pi RP2040 chip equipped with a Dual-core ARM Cortex-M0+ processor running at 133 MHz, 264 KB of internal multi-bank SRAM, and 2 MB of onboard QSPI flash memory.</li>
+<li><strong>Integrated Wireless (CYW43439):</strong> Contains an onboard Infineon CYW43439 wireless subsystem supporting 2.4 GHz 802.11 b/g/n Wi-Fi and Bluetooth 5.2 with an onboard PCB antenna.</li>
+<li><strong>Energy Profile:</strong> Draws less than 0.3 Watts under active networking load, making it an ideal candidate for always-on, power-efficient IoT appliances.</li>
+</ul>
+<hr>
+<h1 id="part-1-the-pico-w-internet-monitor-hardware-prototype--firmware-engine">PART 1: The Pico W Internet Monitor (Hardware Prototype &amp; Firmware Engine)</h1>
+<hr>
+<h3 id="1-problem-statement">1. Problem Statement</h3>
+<p>Diagnosing intermittent Wi-Fi degradation and ISP routing issues is notoriously difficult because standard network speed tests are manual, periodic, and consume substantial bandwidth while missing silent micro-dropouts that disrupt real-time applications. In this initial phase of research and development, I set out to create a dedicated, low-power telemetry appliance that continuously tracks home connectivity. Through this embedded implementation, I try to solve the persistent observability gap in residential networking by deploying an autonomous hardware agent that operates 24/7 without requiring an attached host computer.</p>
+<p>To build an effective diagnostic tool, the system must capture multidimensional performance metrics rather than simple binary connection states. Therefore, the firmware architecture is engineered <strong>not only</strong> to measure physical Wi-Fi signal attenuation (RSSI in dBm) and latency through lightweight TCP handshakes, but also to evaluate real-time jitter, record timestamped dropouts with flash-wear mitigation, and serve a responsive web dashboard directly from the constrained memory of the microcontroller.</p>
+<hr>
+<h3 id="2-technical-architecture--how-it-works-part-1">2. Technical Architecture &amp; How It Works (Part 1)</h3>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><pre tabindex="0"><code>                       +-----------------------------------------------------------+
+                       |              Raspberry Pi Pico W (RP2040)                 |
+                       |                                                           |
+[Public CDN / DNS] &lt;------ TCP Handshake RTT --+-&gt; Metrics Engine                  |
+(1.1.1.1 / 8.8.8.8)    |                       |   (Latency, Jitter, Packet Drop)  |
+                       |                       |                                   |
+                       |                       +-&gt; Wi-Fi Driver (CYW43439 RSSI)    |
+                       |                       |                                   |
+                       |                       +-&gt; In-Memory RAM Ring Buffer       |
+                       |                       |   (Last 120 live data points)     |
+                       |                       |                                   |
+                       |                       +-&gt; Flash Storage Logger            |
+                       |                       |   (Batched CSV summaries)         |
+                       |                       |                                   |
+                       |                       +-&gt; Async Web Server (Port 80)      |
+                       +-------------------------------------+---------------------+
+                                                             |
+                                         HTTP / JSON API (Port 80)
+                                                             |
+                                                             v
+                                            +---------------------------------+
+                                            | Local Network Browser           |
+                                            | (http://&lt;pico-local-ip&gt;)        |
+                                            +---------------------------------+</code></pre></div>
+<h4 id="operational-pipeline">Operational Pipeline:</h4>
+<ol>
+<li><strong>Lightweight Benchmarking:</strong> Avoids heavy bandwidth-consuming speed tests. Instead, it measures precise round-trip times (RTT) via lightweight TCP SYN/ACK handshakes against public CDN DNS resolvers (<code>1.1.1.1:53</code> and <code>8.8.8.8:53</code>) using high-resolution millisecond timers (<code>time.ticks_ms()</code>).</li>
+<li><strong>Dual-Tier Memory Protection:</strong>
+<ul>
+<li>High-frequency samples (every 3 seconds) are stored in an in-memory RAM ring buffer(120 points) to power the web UI&rsquo;s real-time graphs without causing flash wear.</li>
+<li>Long-term statistics (min/avg/max latency, jitter, loss %, disconnect events) are aggregated and flushed to <code>network_log.csv</code> only once every 10 minutes to protect the onboard NOR flash memory from write fatigue.</li>
+</ul>
+</li>
+<li><strong>Embedded Web Telemetry:</strong> A native asynchronous HTTP server (<code>uasyncio</code>) serves a modern, dark-themed dashboard (<code>index.html</code>) with live Chart.js visualizations directly to any device on the local network.</li>
+</ol>
+<hr>
+<h3 id="3-tech-stack--development-journey-part-1">3. Tech Stack &amp; Development Journey (Part 1)</h3>
+<h4 id="tech-stack">Tech Stack</h4>
+<ul>
+<li><strong>Microcontroller:</strong> Raspberry Pi Pico W (RP2040 Dual-Core ARM Cortex-M0+, Infineon CYW43439 2.4GHz Wi-Fi).</li>
+<li><strong>Language &amp; Runtime:</strong> MicroPython with <code>uasyncio</code>.</li>
+<li><strong>Frontend:</strong> Responsive HTML5, CSS3 (Dark Mode variables), Vanilla JavaScript (ES6+), Chart.js.</li>
+<li><strong>Storage:</strong> Flash file system with CSV batching and flash-wear mitigation.</li>
+</ul>
+<h4 id="how-i-developed-it-pair-programming-with-google-antigravity">How I Developed It (Pair Programming with Google Antigravity)</h4>
+<p>I initiated the project by prompting Google Antigravity to architect the embedded monitor:</p>
+<blockquote>
+<p><strong>User Prompt:</strong><br>
+<em>&ldquo;I bought raspberry pi pico w and I plugged in to this laptop. I would like to develop a mini dashboard app that monitors and logs internet connection strength and consistency. Think hard search web and propose me the project steps in a guideline.&rdquo;</em></p>
+</blockquote>
+<p><strong>Antigravity&rsquo;s Contribution:</strong></p>
+<ul>
+<li>Drafted a modular architecture (<code>config.py</code>, <code>wifi_manager.py</code>, <code>metrics.py</code>, <code>web_server.py</code>, <code>main.py</code>).</li>
+<li>Implemented non-blocking socket timing using <code>time.ticks_ms()</code> and <code>time.ticks_diff()</code>.</li>
+<li>Designed an async HTTP server that avoids third-party dependency overhead.</li>
+</ul>
+<p>When testing the local simulator on macOS, an environment error occurred then I solved it by using Antigravity.</p>
+<p><strong>Antigravity&rsquo;s Contribution:</strong></p>
+<ul>
+<li>Analyzed the trace and identified an <code>AttributeError</code> on <code>wlan.ifconfig()</code> caused by running hardware-specific MicroPython calls on macOS standard Python.</li>
+<li>Added platform abstraction layers so the codebase runs seamlessly on both development laptops and microcontrollers.</li>
+</ul>
+<hr>
+<hr>
+<h1 id="part-2-deploying-to-raspberry-pi-zero-2-w--global-access-via-tailscale-funnel">PART 2: Deploying to Raspberry Pi Zero 2 W &amp; Global Access via Tailscale Funnel</h1>
+<hr>
+<h3 id="1-problem-statement-1">1. Problem Statement</h3>
+<p>Although the initial microcontroller prototype operated reliably inside the home subnet, its accessibility was strictly confined to local Wi-Fi coverage due to residential NAT and router firewall boundaries. In this second phase of development, I the challenge of achieving secure, perimeter-less remote observability by migrating the monitoring service to an always-on Linux edge appliance (Raspberry Pi Zero 2 W). This transition overcomes the limitations of dynamic residential IP addressing and avoids the severe security hazards of conventional port-forwarding.</p>
+<p>By integrating modern encrypted overlay networking, the deployment is structured not only to maintain continuous, background telemetry collection on a dedicated edge device, but also to publish an authenticated, publicly verifiable HTTPS endpoint via Tailscale Funnel that permits global browser access without requiring third-party users or mobile clients to install specialized VPN software.</p>
+<hr>
+<h3 id="2-technical-architecture--how-it-works-part-2">2. Technical Architecture &amp; How It Works (Part 2)</h3>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-">
+        <span class="code-title"><i class="arrow fas fa-angle-right" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy" aria-hidden="true"></i></span>
+    </div><pre tabindex="0"><code>                            [ Home Network / Edge ]
+                           +-------------------------------------------------------+
+                           | Raspberry Pi Zero 2 W (Linux OS)                      |
+                           |                                                       |
+ [Public DNS] &lt;-- TCP RTT -+-&gt; Metrics Engine (RTT, Jitter, Packet Drop, RSSI)     |
+                           |                                                       |
+                           |   +-&gt; Python Async HTTP Server (Port 8080)            |
+                           +---------------------------+---------------------------+
+                                                       |
+                                           Proxied via localhost:8080
+                                                       |
+                                                       v
+                                        +------------------------------+
+                                        |  Tailscale Funnel (Port 443) |
+                                        +--------------+---------------+
+                                                       |
+                                  Encrypted Public HTTPS (Zero Port-Forwarding)
+                                                       |
+                                                       v
+                                  +-----------------------------------------+
+                                  | Global Internet Clients (Phones, Laptops|
+                                  | https://&lt;your-device&gt;.&lt;tailnet&gt;.ts.net  |
+                                  +-----------------------------------------+</code></pre></div>
+<h4 id="operational-pipeline-1">Operational Pipeline:</h4>
+<ol>
+<li><strong>Linux Edge Migration:</strong> The service was adapted into <code>pi_monitor.py</code>, configured to bind to <code>0.0.0.0:8080</code> so that all local and virtual network interfaces can access the HTTP dashboard.</li>
+<li><strong>Encrypted WireGuard Mesh:</strong> The Raspberry Pi Zero 2 W authenticates into a private Tailscale tailnet, receiving a secure virtual IP.</li>
+<li><strong>Tailscale Funnel (Public Ingress):</strong>
+<ul>
+<li>Using Tailscale Funnel, Tailscale provisions an automated TLS certificate for the device&rsquo;s MagicDNS domain.</li>
+<li>Inbound requests from the public internet hit Tailscale&rsquo;s edge relays and are forwarded securely over encrypted WireGuard down to port 8080 on the Pi.</li>
+<li>Zero router port forwarding, no static IP, and no firewall exceptions required.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="3-tech-stack--development-journey-part-2">3. Tech Stack &amp; Development Journey (Part 2)</h3>
+<h4 id="tech-stack-1">Tech Stack</h4>
+<ul>
+<li><strong>Edge Hardware:</strong> Raspberry Pi Zero 2 W (Quad-core 64-bit ARM Cortex-A53, 512MB RAM).</li>
+<li><strong>Operating System:</strong> Raspberry Pi OS Lite (Debian Linux).</li>
+<li><strong>Language &amp; Runtime:</strong> Python 3 (<code>asyncio</code>, <code>socket</code>, <code>json</code>).</li>
+<li><strong>Remote Access &amp; Networking:</strong> Tailscale, Tailscale Funnel, Tailscale MagicDNS (<code>*.ts.net</code>), TLS/HTTPS reverse proxy.</li>
+</ul>
+<h4 id="how-i-developed-it-pair-programming-with-google-antigravity-1">How I Developed It (Pair Programming with Google Antigravity)</h4>
+<p>I transitioned the project from the microcontroller to Linux edge deployment with Antigravity:</p>
+<blockquote>
+<p><strong>User Prompt:</strong><br>
+<em>&ldquo;Deploy the Pico W internet monitor project I made to one of the Raspberry Pis at home. Make it accessible via Tailscale and connect to it from outside the house. In other words, connect to the RPi from outside the house and use this application.&rdquo;</em><br>
+<em>&ldquo;I will deploy it to pi zero 2 w&rdquo;</em></p>
+</blockquote>
+<p><strong>Antigravity&rsquo;s Contribution:</strong></p>
+<ul>
+<li>Refactored the core socket binding to <code>0.0.0.0:8080</code> in <code>pi_monitor.py</code> so the service could accept incoming VPN traffic.</li>
+<li>Outlined the deployment pipeline via <code>scp</code>, SSH configuration, and service execution on the Pi Zero 2 W.</li>
+</ul>
+<p>When understanding the networking parameters:</p>
+<blockquote>
+<p><strong>User Prompt:</strong><br>
+<em>&ldquo;tailscale ip -4) meaning?&rdquo;</em></p>
+</blockquote>
+<p><strong>Antigravity&rsquo;s Contribution:</strong></p>
+<ul>
+<li>Explained CGNAT address spaces (<code>100.x.y.z</code>), VPN mesh routing, and how peer-to-peer WireGuard tunnels operate across NAT barriers.</li>
+</ul>
+<p>When enabling public sharing without requiring VPN client installation on guest devices:</p>
+<blockquote>
+<p><strong>User Prompt:</strong><br>
+<em>&ldquo;How can other users see this online internet monitoring tool without same tailscale account?&rdquo;</em><br>
+<em>&ldquo;how can i Go to Access Controls / Settings and ensure Funnel is enabled for your account for this problem&rdquo;</em></p>
+</blockquote>
+<p><strong>Antigravity&rsquo;s Contribution:</strong></p>
+<ul>
+<li>Configured the Tailscale Access Control Policy (ACL) by adding the required <code>nodeAttrs</code> block for Funnel enablement.</li>
+<li>Configured and activated the background funnel proxy (<code>sudo tailscale funnel --bg 8080</code>), producing a secure, public HTTPS link (<code>https://&lt;device&gt;.&lt;tailnet&gt;.ts.net</code>).</li>
+</ul>
+<hr>
+<h2 id="4-key-highlights--summary">4. Key Highlights &amp; Summary</h2>
+<table>
+	<thead>
+			<tr>
+					<th style="text-align: left">Dimension</th>
+					<th style="text-align: left">Part 1: Microcontroller Prototype</th>
+					<th style="text-align: left">Part 2: Cloud-Accessible Edge Appliance</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td style="text-align: left"><strong>Hardware</strong></td>
+					<td style="text-align: left">Raspberry Pi Pico W</td>
+					<td style="text-align: left">Raspberry Pi Zero 2 W</td>
+			</tr>
+			<tr>
+					<td style="text-align: left"><strong>Silicon Architecture</strong></td>
+					<td style="text-align: left">RP2040 Dual-core ARM Cortex-M0+</td>
+					<td style="text-align: left">Broadcom BCM2710A1 Quad-core ARM Cortex-A53</td>
+			</tr>
+			<tr>
+					<td style="text-align: left"><strong>Runtime</strong></td>
+					<td style="text-align: left">MicroPython (<code>uasyncio</code>)</td>
+					<td style="text-align: left">Linux / Python 3 (<code>asyncio</code>)</td>
+			</tr>
+			<tr>
+					<td style="text-align: left"><strong>Accessibility</strong></td>
+					<td style="text-align: left">Local Home Wi-Fi Only (<code>http://192.168.x.x</code>)</td>
+					<td style="text-align: left">Global Secure HTTPS (<code>https://&lt;device&gt;.ts.net</code>)</td>
+			</tr>
+			<tr>
+					<td style="text-align: left"><strong>Network Security</strong></td>
+					<td style="text-align: left">Local subnet only</td>
+					<td style="text-align: left">Zero-Trust Encrypted WireGuard Tunnel (No port-forwarding)</td>
+			</tr>
+			<tr>
+					<td style="text-align: left"><strong>Storage Model</strong></td>
+					<td style="text-align: left">NOR Flash-safe batched CSV</td>
+					<td style="text-align: left">Persistent Linux Filesystem</td>
+			</tr>
+			<tr>
+					<td style="text-align: left"><strong>Power Profile</strong></td>
+					<td style="text-align: left">Ultra-low power (~0.3W)</td>
+					<td style="text-align: left">Low-power edge appliance (~0.7W)</td>
+			</tr>
+	</tbody>
+</table>
+</div></div></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.166.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 1.0.0"><i class="far fa-kiss-wink-heart" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Mahmut Oklu</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment" aria-hidden="true"></i>
+            </a>
+        </div><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.2/sharer.min.js"></script><script>window.config={"comment":{}};</script><script src="/js/theme.js"></script></body>
+</html>
