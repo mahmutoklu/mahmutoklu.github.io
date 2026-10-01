@@ -38,7 +38,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/mahmutoklu.github.io\/projects\/internet-monitor-picow\/"
-        },"genre": "projects","keywords": "Raspberry Pi, Pico W, IoT, MicroPython, Tailscale, Networking, Architecture","wordcount":  1492 ,
+        },"genre": "projects","keywords": "Raspberry Pi, Pico W, IoT, MicroPython, Tailscale, Networking, Architecture","wordcount":  1393 ,
         "url": "https:\/\/mahmutoklu.github.io\/projects\/internet-monitor-picow\/","datePublished": "2026-09-30T00:00:00+00:00","dateModified": "2026-09-30T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -86,10 +86,10 @@
             </a></div>
     </div>
 </header><main class="main">
-                <div class="container"><div class="page single special"><h1 class="single-title animate__animated animate__pulse animate__faster">24/7 Internet Health &amp; Telemetry Monitor: From Pico W to Cloud-Accessible Edge Appliance</h1><div class="content" id="content"><p>An end-to-end IoT and edge computing project designed to continuously measure Wi-Fi link quality, ping latency, jitter, and packet loss, serving an interactive telemetry dashboard accessible globally via Tailscale Funnel.</p>
-<p><strong>GitHub Repository:</strong> <a href="https://github.com/mahmutoklu/pico-w-internet-monitor" target="_blank" rel="noopener noreffer ">https://github.com/mahmutoklu/pico-w-internet-monitor</a></p>
+                <div class="container"><div class="page single special"><h1 class="single-title animate__animated animate__pulse animate__faster">24/7 Internet Health &amp; Telemetry Monitor: From Pico W to Cloud-Accessible Edge Appliance</h1><div class="content" id="content"><p><strong>GitHub Repository:</strong> <a href="https://github.com/mahmutoklu/pico-w-internet-monitor" target="_blank" rel="noopener noreffer ">https://github.com/mahmutoklu/pico-w-internet-monitor</a></p>
+<p>An end-to-end IoT and edge computing project designed to continuously measure Wi-Fi link quality, ping latency, jitter, and packet loss, serving an interactive telemetry dashboard accessible globally via Tailscale Funnel.</p>
 <hr>
-<h2 id="-background-what-is-the-raspberry-pi-pico-w">📌 Background: What is the Raspberry Pi Pico W?</h2>
+<h2 id="background-what-is-the-raspberry-pi-pico-w">Background: What is the Raspberry Pi Pico W?</h2>
 <p>The <strong>Raspberry Pi Pico W</strong> is a high-performance, ultra-low-cost ($6) microcontroller development board designed by Raspberry Pi:</p>
 <ul>
 <li><strong>Microcontroller vs. SBC:</strong> Unlike a standard Single Board Computer (such as a Raspberry Pi 4 or 5) which boots a full operating system like Linux, the Pico W is a &ldquo;bare-metal&rdquo; microcontroller. It executes code directly on hardware with zero operating system overhead, typically programmed via MicroPython or C/C++.</li>
@@ -232,11 +232,6 @@
 </ul>
 <h4 id="how-i-developed-it-pair-programming-with-google-antigravity-1">How I Developed It (Pair Programming with Google Antigravity)</h4>
 <p>I transitioned the project from the microcontroller to Linux edge deployment with Antigravity:</p>
-<blockquote>
-<p><strong>User Prompt:</strong><br>
-<em>&ldquo;Deploy the Pico W internet monitor project I made to one of the Raspberry Pis at home. Make it accessible via Tailscale and connect to it from outside the house. In other words, connect to the RPi from outside the house and use this application.&rdquo;</em><br>
-<em>&ldquo;I will deploy it to pi zero 2 w&rdquo;</em></p>
-</blockquote>
 <p><strong>Antigravity&rsquo;s Contribution:</strong></p>
 <ul>
 <li>Refactored the core socket binding to <code>0.0.0.0:8080</code> in <code>pi_monitor.py</code> so the service could accept incoming VPN traffic.</li>
@@ -248,11 +243,6 @@
 <li>Explained CGNAT address spaces (<code>100.x.y.z</code>), VPN mesh routing, and how peer-to-peer WireGuard tunnels operate across NAT barriers.</li>
 </ul>
 <p>When enabling public sharing without requiring VPN client installation on guest devices:</p>
-<blockquote>
-<p><strong>User Prompt:</strong><br>
-<em>&ldquo;How can other users see this online internet monitoring tool without same tailscale account?&rdquo;</em><br>
-<em>&ldquo;how can i Go to Access Controls / Settings and ensure Funnel is enabled for your account for this problem&rdquo;</em></p>
-</blockquote>
 <p><strong>Antigravity&rsquo;s Contribution:</strong></p>
 <ul>
 <li>Configured the Tailscale Access Control Policy (ACL) by adding the required <code>nodeAttrs</code> block for Funnel enablement.</li>
